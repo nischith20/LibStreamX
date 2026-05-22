@@ -1,0 +1,15 @@
+build/
+*.o
+*.obj
+*.a
+*.lib
+*.exe
+*.pdb
+.vscode/
+.vs/
+.idea/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.cmake
+test_*_tmp.*

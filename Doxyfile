@@ -1,0 +1,32 @@
+# Doxyfile 1.9.0 for LibStreamX
+# Public API Documentation configuration details
+
+PROJECT_NAME           = "LibStreamX"
+PROJECT_NUMBER         = 0.1.0
+PROJECT_BRIEF          = "High-Performance Modular Binary Stream Parsing Utility"
+OUTPUT_DIRECTORY       = docs
+CREATE_SUBDIRS         = NO
+ALLOW_UNICODE_NAMES    = YES
+OUTPUT_LANGUAGE        = English
+BRIEF_MEMBER_DESC      = YES
+REPEAT_BRIEF           = YES
+
+# Input files config
+INPUT                  = include src README.md
+INPUT_ENCODING         = UTF-8
+FILE_PATTERNS          = *.c *.h *.md
+RECURSIVE              = YES
+
+# Output formats
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO
+
+# Build optimization settings
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+SUBGROUPING            = YES
