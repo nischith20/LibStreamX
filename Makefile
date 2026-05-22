@@ -19,7 +19,10 @@ else
 endif
 
 CC      = gcc
-CFLAGS  = -Wall -Wextra -O2 -std=c99 -Iinclude
+# -D_POSIX_C_SOURCE=200809L exposes POSIX symbols (strdup, etc.) that the
+# library relies on; without it, glibc's <string.h> hides strdup under
+# -std=c99 and the implicit-int fallback truncates the returned pointer.
+CFLAGS  = -Wall -Wextra -O2 -std=c99 -D_POSIX_C_SOURCE=200809L -Iinclude
 LDFLAGS =
 
 # Sanitizer overlay — enabled via `make asan` / `make ubsan`.

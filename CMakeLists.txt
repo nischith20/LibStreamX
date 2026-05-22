@@ -10,6 +10,8 @@ if(MSVC)
     add_compile_options(/W4)
 else()
     add_compile_options(-Wall -Wextra -O2)
+    # strdup is POSIX, not C99 - glibc hides it under -std=c99 without this.
+    add_compile_definitions(_POSIX_C_SOURCE=200809L)
 endif()
 
 if(STREAMX_ASAN AND NOT MSVC)

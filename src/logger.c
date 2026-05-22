@@ -58,5 +58,6 @@ void logger_log(int level, const char *fmt, ...) {
 void logger_close(void) {
     if (log_fp != NULL) {
         fclose(log_fp);
+        log_fp = NULL;
     }
 }
