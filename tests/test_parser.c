@@ -121,6 +121,23 @@ static int parser_tokenize_null_guard(void) {
     return 0;
 }
 
+static int parser_tokenize_large_metadata_value(void) {
+    parser_t *parser = parser_create(8);
+    TEST_ASSERT(parser != NULL, "parser_create");
+
+    const char *meta =
+        "name=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+
+    streamx_status_t s =
+        parser_tokenize_metadata(parser, meta);
+
+    TEST_ASSERT_EQ_INT(s, STREAMX_OK,
+                       "large metadata value should not overflow");
+
+    parser_free(parser);
+    return 0;
+}
+
 int test_parser_run(void) {
     int failures = 0;
     printf("[parser]\n");
@@ -130,5 +147,6 @@ int test_parser_run(void) {
     TEST_RUN(parser_tokenize_basic_metadata);
     TEST_RUN(parser_tokenize_rejects_missing_eq);
     TEST_RUN(parser_tokenize_null_guard);
+    TEST_RUN(parser_tokenize_large_metadata_value);
     return failures;
 }
