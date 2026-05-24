@@ -193,7 +193,7 @@ streamx_status_t parser_tokenize_metadata(parser_t *parser, const char *meta_str
        if (strcmp(val, "ABORT") == 0) {
             free(data_copy);
             return STREAMX_ERR_INVALID;
-}
+        }
 
         parser->token_count++;
         token = strtok(NULL, ";");
